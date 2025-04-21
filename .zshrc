@@ -25,11 +25,12 @@ alias man='batman' #!!!
 alias cat='bat'
 
 # listing filViewer window closed.es
+alias ls='exa --icons --color always'
 alias ll='exa --long --icons --header --color always --git'
-alias la='exa --long --icons --header --color always --git --group  --all --git-ignore'
+alias la='exa --long --icons --header --color always --git --group  --all --git-ignore --ignore-glob="git|.git"'
 alias lla='exa --long --icons --header --color always --git --group  --all'
-alias lt='exa --icons --header --color always --git --git-ignore --tree'
-alias lta='exa --icons --header --color always --all --git --git-ignore --tree'
+alias lt='exa --icons --header --color always --git --git-ignore --tree --ignore-glob="git|.git"'
+alias lta='exa --icons --header --color always --all --git --git-ignore --tree --ignore-glob="git|.git"'
 
 # Override default help messages to use pretty colors
 alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
