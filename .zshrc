@@ -8,6 +8,7 @@ export PATH=$HOME/.cargo/bin:$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 eval "$(starship init zsh)"
 
+fastfetch --config $HOME/.config/fastfetch/compact.jsonc
 
 setopt completealiases
 
