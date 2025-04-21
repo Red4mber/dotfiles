@@ -1,5 +1,5 @@
 # Add deno completions to search path
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.cargo/bin:$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # export ZSH="$HOME/.oh-my-zsh"
 # ZSH_THEME="robbyrussell"
@@ -10,6 +10,15 @@ eval "$(starship init zsh)"
 
 
 setopt completealiases
+
+# Fix ctrl+arrow in some terminals
+# use `showkey -a` to see keycodes
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+bindkey "^H" backward-delete-word
+bindkey "^[[3;5~" kill-word
+
+
 
 # Na Nananana Na Nananana
 alias man='batman' #!!!
