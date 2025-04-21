@@ -6,6 +6,9 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 # source $ZSH/oh-my-zsh.sh
 # plugins=(zsh-completions git)
 
+eval "$(starship init zsh)"
+
+
 setopt completealiases
 
 # Na Nananana Na Nananana
