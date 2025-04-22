@@ -1,48 +1,63 @@
 {
-  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-  "logo": {
-    "source": "~/.config/fastfetch/assets/ScarletTransparent.png",
-    "type": "iterm", 
-    "height": 12,
-    "width": 24,
-    "padding": {
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "source": "~/.config/fastfetch/assets/ScarletTransparent.png",
+        "type": "iterm", 
+        "height": 12,
+        "width": 24,
+        "padding": {
       //"top": 2,
      // "left": 1 
-    }
-  },
-  "display": {
-    "separator": " ➜  "
-  },
-  "modules": [
-    "break",
+        }
+    },
+    "display": {
+        "separator": " ➜  ",
+        "color": {
+                "separator": "1;38;5;160",
+                "output": "0",
+                "keys": "0",
+        }
+    },
+    "modules": [
+        "break",
         {
-          "type": "title",
-          "keyWidth": 10,
-          "format": "         {6}{7}{8}"
+            "type": "title",
+            "keyWidth": 25,
+            "color": {
+                //"user": "1;38;5;214",
+                "user": "0",
+                "at": "2;38;5;160",
+                //"at": "2;38;5;248",
+                //"host": "1;38;5;214"
+                "host": "0"
+            },
+            "format": "{#}{user-name>13}{7}{host-name<13}"
+            //"format": "{#1}{user-name>12}{#1;38;5;160}{7}{#1}{host-name<12}{#}"
         },
         {
-          "type": "custom",
-          "format": " ─────────────────────────── "
+            "type": "custom",
+            "format": "{#1;38;5;160} ──────────{#1;0}  {#}{#1;38;5;160}────────── {#}"
+            //"format": "{#1;38;5;160} ──────────{#2;5;38;5;240}  {#}{#1;38;5;160}────────── {#}"
         },
         {
-          "type": "kernel",
-          "key": " ",
-          "keyColor": "yellow"
+            "type": "kernel",
+            "key": " ",
+            //"keyColor": "1;38;5;214"
         },
         {
-          "type": "wm",
-          "key": " ",
-          "keyColor": "blue"
+            "type": "wm",
+            "key": " ",
+            //"keyColor": "1;38;5;160"
         },
         {
-          "type": "shell",
-          "key": " ",
-          "keyColor": "yellow"
+            "type": "shell",
+            "key": " ",
+            //"keyColor": "1;38;5;214"
         },
         {
-          "type": "terminal",
-          "key": " ",
-          "keyColor": "blue"
+            "type": "terminal",
+            "key": " ",
+            //"keyColor": "1;38;5;160"
         },
         /*
         {
@@ -52,26 +67,30 @@
         },
         */
         {
-          "type": "memory",
-          "key": "󰍛 ",
-          "keyColor": "magenta",
+            "type": "memory",
+            "key": " ",
+            //"keyColor": "1;38;5;214",
             // format: used / total
             "format": "{1} / {2}"
         },
         {
-          "type": "uptime",
-          "key": "󰔛 ",
-          "keyColor": "green"
+            "type": "uptime",
+            "key": " ",
+            //"keyColor": "1;38;5;160"
         },
         {
-          "type": "custom",
-          "format": " ─────────────────────────── "
+            "type": "custom",
+            //"format": "{#2;38;5;250} ─────────────────────────── {#}"
+            "format": "{#1;38;5;160} ──────────{#1;0}  {#}{#1;38;5;160}────────── {#}"
+            //"format": "{#1;38;5;160} ──────────{#2;38;5;240}  {#}{#1;38;5;160}────────── {#}"
+            //"format": "{#1;38;5;160} ─────────────────────────── {#}"
+            //"format": "{#1;38;2;180;100;255} ─────────────────────────── {#}"
         },
         {
-          "type": "custom",
-          "format": "   \u001b[31m  \u001b[32m  \u001b[33m  \u001b[34m  \u001b[35m  \u001b[36m  \u001b[37m  \u001b[90m "
+            "type": "custom",
+            "format": "   \u001b[31m  \u001b[32m  \u001b[33m  \u001b[34m  \u001b[35m  \u001b[36m  \u001b[37m  \u001b[90m "
         },
         "break",
-          ]
+            ]
 }
 
