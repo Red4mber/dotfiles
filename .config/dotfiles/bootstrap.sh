@@ -53,17 +53,29 @@ dotfiles checkout
 # === Set Git to not show untracked files ===
 dotfiles config --local status.showUntrackedFiles no
 
-# bash by default, or zsh if it exists
-SHELL_RC="${HOME}/.bashrc"
-[ -n "${ZSH_VERSION}" ] && SHELL_RC="${HOME}/.zshrc"
+# # TODO Add proper support for bash and fish
+# # bash by default, or zsh if it exists
+# SHELL_RC="${HOME}/.bashrc"
+# [ -n "${ZSH_VERSION}" ] && SHELL_RC="${HOME}/.zshrc"
+SHELL_RC="${HOME}/.zshrc"
+
+curl -L git.io/antigen > "${DOTFILES_DIR}/antigen.zsh"
+
 
 # Install dotfiles in the config if not already present
-if grep -q "source ${DOTFILES_DIR}/dotfiles.sh" $SHELL_RC
+if ! grep -q "source ${DOTFILES_DIR}/dotfiles.sh" $SHELL_RC
 then
     echo  "source ${DOTFILES_DIR}/dotfiles.sh" >> $SHELL_RC
+    echo  "source ${DOTFILES_DIR}/antigen.zsh" >> $SHELL_RC
 else
-    echo "[?-?] dotfiles was already in your config !"
+    echo "[?-?] The dotfiles manager script is already in your shell config !"
 fi
 
 echo "[^v^] Done! Please restart your shell or run 'source ${SHELL_RC}' to activate aliases."
 
+
+
+## Arch stuff
+
+
+# sudo sed -i~ 's/^#Color/Color/' /etc/pacman.conf

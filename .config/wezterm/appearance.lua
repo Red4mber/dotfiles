@@ -6,8 +6,10 @@ function module.apply(config)
     --config.color_scheme = 'Oxocarbon Dark (Gogh)'
     --config.color_scheme = 'Hacktober'
     --config.color_scheme = 'Isotope (base16)'
-    config.color_scheme = 'Floraverse'
+    --config.color_scheme = 'Floraverse'
     --config.color_scheme = 'Vesper (terminal.sexy)'
+    config.color_scheme_dirs = { '~/.config/wezterm/colors' }
+    config.color_scheme = 'scarlet'
 
     -- backend
     config.max_fps = 120
