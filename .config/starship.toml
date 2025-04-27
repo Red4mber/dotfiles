@@ -1,0 +1,148 @@
+format = """
+$username\
+$hostname\
+$directory\
+$nix_shell\
+$python\
+$rust\
+$fill\
+$git_branch\
+$git_state\
+$git_status\
+$battery\
+$memory_usage\
+$cmd_duration\
+$time\
+$line_break\
+$sudo$character"""
+
+palette = "custom"
+
+[palettes.custom]
+black = '#131213'
+white = '#FAFAFA'
+scarlet = '#FF2400'
+red = '#ED2939'
+rust = '#D34516'
+orange = '#FF7900'
+pink = '#FF69B4'
+amber = '#FFBF00'
+yellow = '#FFFF00'
+green = '#00A550'
+purple = '#8856ff'
+blue = '#28607F'
+
+
+[sudo]
+format = "[$symbol]($style)"
+style = "bold italic scarlet"
+symbol = " "
+disabled = false
+
+[username]
+style_user = "amber bold italic"
+style_root = "blue bold italic"
+format = "[ $user]($style) "
+disabled = false
+show_always = false
+
+[hostname]
+ssh_symbol = ' '
+format = '[$ssh_symbol$hostname ]($style)'
+style = 'bold dimmed scarlet'
+
+[directory]
+home_symbol = " "
+truncation_length = 2
+truncation_symbol = "  "
+read_only = ""
+use_os_path_sep = true
+style = "italic amber"
+format = '[$path]($style)[$read_only]($read_only_style)'
+repo_root_style = 'bold amber'
+repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) [ ](bold purple) '
+
+[nix_shell]
+disabled = true
+symbol = '󱄅 '
+impure_msg = '[ ](bold red)'
+pure_msg = '[ ](bold green)'
+unknown_msg = '[?](bold yellow)'
+format = '[$symbol$state( \($name\))]($style)'
+
+[character]
+success_symbol = "[ ](purple)"
+error_symbol = "[ ](scarlet)"
+vimcmd_symbol = "[ ](blue)"
+
+[git_branch]
+symbol = ' '
+format = ' [$symbol$branch]($style) '
+truncation_symbol = ' '
+style = 'bold green'
+
+[git_status]
+format = '([ \( $all_status$ahead_behind\)]($style) )'
+style = 'bold amber'
+conflicted = '[ confliced=${count}](red) '
+up_to_date = '[ up-to-date](#cc66ff) '
+untracked = '[ untracked=${count}](red) '
+ahead = ' ahead=${count}'
+diverged = ' ahead=${ahead_count}  behind=${behind_count}'
+behind = ' behind=${count}'
+stashed = '[  stashed=${count}](yellow) '
+modified = '[ modified=${count}](#ff9933) '
+staged = '[ staged=${count}](#cc66ff) '
+renamed = '[ renamed=${count}](yellow) '
+deleted = '[ deleted=${count}](red) '
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "amber"
+
+
+[battery]
+full_symbol = ' '
+charging_symbol = ' '
+discharging_symbol = ' '
+format = '[$symbol$percentage]($style) '
+
+[[battery.display]]
+threshold = 20
+discharging_symbol = ' '
+style = "italic bold red"
+
+[[battery.display]]
+threshold = 60
+style = "italic dimmed purple"
+
+[[battery.display]]
+threshold = 70
+style = "italic dimmed yellow"
+
+
+[cmd_duration]
+format = "[$duration]($style)"
+style = "yellow"
+
+[python]
+format = "[$virtualenv]($style) "
+style = "yellow"
+
+[rust]
+format = '[\[$version$symbol\]]($style)'
+symbol = " 󱘗 "
+version_format = "${raw}"
+style = "bold rust"
+
+
+[time]
+disabled = false
+format = "[ $time]($style)"
+time_format = "%R"
+utc_time_offset = "local"
+style = "italic dimmed white"
+
+[memory_usage]
+symbol = " "
+format = " mem [${ram}( ${swap})]($style)"
