@@ -1,0 +1,122 @@
+{
+    "layer": "top",
+    "position": "top",
+    "modules-left": [ "hyprland/workspaces" ],
+    "modules-center": [ "hyprland/window" ],
+    "modules-right": [ "network#eth", "network#wifi", "bluetooth", "wireplumber", "backlight", "battery", "tray", "clock" ],
+    
+    "network#eth": {
+        "interface": "enp1s0",
+        "format-disabled": "[eth off]",
+        "format-disconnected": "[eth down]",
+        "format-ethernet": "[eth ok]",
+        "tooltip-format": "{ipaddr}/{netmask}",
+    },
+
+
+    "network#wifi": {
+        "interface": "wlan0",
+        "format-disabled": "[wifi off]",
+        "format-disconnected": "[wifi down]",
+        "format-wifi": "[wifi {signalStrength}%]",
+        "tooltip-format": "{essid} - ({signalStrength}%)\n{frequency} - {signaldBm}\ndown: {bandwidthDownBytes} - up: {bandwidthUpBytes}\ntotal: {bandwidthTotalBytes}\n{ipaddr}/{netmask}",
+    },
+
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "all-outputs": false,
+        "active-only": false,
+        //"format-icons": {
+            //"active": " ",
+            //"default": " ",
+        //},
+    },
+
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 50,
+        "separate-outputs": true,
+        "rewrite": {
+            "(.*) - Mozilla Firefox": "$1",
+        }
+    },
+
+    "bluetooth": {
+        "format": "[bt. {status}]",
+        "format-connected": "[{num_connected} dev]",
+        "tooltip-format": " [{controller_address}] - {controller_alias}",
+        "tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias} [{device_battery}]",
+    },
+    
+    "battery": {
+        "format": "{icon}",
+        "tooltip-format": "{capacity}%",
+        "format-icons": [
+            "[     ]",
+            "[░    ]",
+            "[▒░   ]",
+            "[▓▒░  ]",
+            "[█▓▒░ ]",
+            "[██▓▒░]",
+            "[███▓▒]",
+            "[████▓]",
+            "[█████]",
+        ],
+    },
+
+    "backlight": {
+        "format": "{icon}",
+        "tooltip-format": "{percent}%",
+        "format-icons": [
+            "[     ]",
+            "[░    ]",
+            "[▒░   ]",
+            "[▓▒░  ]",
+            "[█▓▒░ ]",
+            "[██▓▒░]",
+            "[███▓▒]",
+            "[████▓]",
+            "[█████]",
+        ],
+    },
+
+    "wireplumber": {
+        "format": "{icon}",
+        "format-icons": [
+            "[     ]",
+            "[░    ]",
+            "[▒░   ]",
+            "[▓▒░  ]",
+            "[█▓▒░ ]",
+            "[██▓▒░]",
+            "[███▓▒]",
+            "[████▓]",
+            "[█████]",
+        ],
+        "tooltip-format": "{volume}% {node_name}"
+    },
+
+    "clock": { 
+        "timezone": "Europe/Paris",
+        "format": "[{:%H:%M}]",
+        "tooltip-format": "{:%a. %d %b. %Y}\n<small>{calendar}</small>",
+        "calendar": {
+            "mode": "month",
+            "on-scroll": 1,
+            "actions" : {
+                "on-click-right": "shift_reset",
+                "on-scroll-up": "shift_up",
+                "on-scroll-down": "shift_down",
+            },
+            "format": {
+                "weeks": "{:%W}",
+                "months": "<span color='#a0a0a0'><b>{}</b></span>",
+                "today": "<span color='#ff2400'><b><u>{}</u></b></span>",
+            },
+        },
+    },
+
+    "tray": { "icon-size": 20 }
+}
