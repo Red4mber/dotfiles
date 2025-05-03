@@ -1,0 +1,33 @@
+# Base16 oomox-basic - wezterm color config
+# Scheme by oomox-basic
+
+[colors]
+foreground    = "#e5cece"
+background    = "#000000"
+cursor_bg     = "#e5cece"
+cursor_border = "#e5cece"
+cursor_fg     = "#000000"
+selection_bg  = "#e5cece"
+selection_fg  = "#000000"
+
+ansi = [
+  "#000000",
+  "#ff332e",
+  "#95eb3e",
+  "#f0d142",
+  "#63b5ff",
+  "#ff47fa",
+  "#37edff",
+  "#e5cece"
+]
+
+brights = [
+  "#726767",
+  "#ff332e",
+  "#95eb3e",
+  "#f0d142",
+  "#63b5ff",
+  "#ff47fa",
+  "#37edff",
+  "#dad0e4"
+]
